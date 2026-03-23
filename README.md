@@ -26,9 +26,11 @@ This helps communicate your learning goals and intentions behind the project. Re
 - Local data storage (optional)
 
 ## 💻 How to Run
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/shruta99-cse/campus-pass-swift.git![loginAsStudent](https://github.com/user-attachments/assets/9ac92965-4c13-4a31-975a-266fcec7aeaa)
+1. Clone the repo  
+2. Open `CampusPass.xcodeproj` in Xcode  
+3. Configure backend keys (if any)  
+4. Run on iOS Simulator or device
+   This helps recruiters understand your goal and effort behind the project.
 ![pass](https://github.com/user-attachments/assets/295dc957-21af-4142-b592-27e461af115f)
 ![s](https://github.com/user-attachments/assets/3cd5fabf-e93b-4a97-b848-5ba7861fe3ab)
 ![loginAsAdmin](https://github.com/user-attachments/assets/45a39468-0480-4f2d-8993-ce20f8252dc5)
