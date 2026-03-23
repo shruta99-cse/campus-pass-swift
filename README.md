@@ -1,7 +1,16 @@
 # Welcome to your Lovable project
 # Campus Pass – iOS App (Swift)
 
+“Campus Pass is an iOS app that simplifies campus entry management by letting students request passes and admins approve them with ease.
+
 Campus Pass is a mobile application designed to **simplify campus access management**. It allows students and staff to request, approve, and track campus passes easily.
+Why I Built It
+
+Solves manual campus pass problems
+Practice building real mobile workflows
+Strengthened knowledge of SwiftUI
+
+This helps communicate your learning goals and intentions behind the project. Recruiters call this storytelling and it matters
 
 ## 🛠 Features
 - User authentication (Sign up / Login)
