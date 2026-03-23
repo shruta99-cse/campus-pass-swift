@@ -1,4 +1,4 @@
-# Welcome to your Lovable project
+# Welcome to My Lovable project
 # Campus Pass – iOS App (Swift)
 
 “Campus Pass is an iOS app that simplifies campus entry management by letting students request passes and admins approve them with ease.
