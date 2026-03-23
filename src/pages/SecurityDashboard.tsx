@@ -62,6 +62,7 @@ const SecurityDashboard = () => {
 
     const passData: VerifiedPass = { ...data, profiles: profileData };
     setVerifiedPass(passData);
+    setRecentScans(prev => [passData, ...prev.filter(p => p.id !== passData.id)].slice(0, 10));
 
     if (passData.status === 'approved') {
       toast.success('Pass is VALID ✓');
