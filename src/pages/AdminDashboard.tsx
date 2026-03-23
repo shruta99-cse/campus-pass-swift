@@ -31,7 +31,7 @@ const AdminDashboard = () => {
   const fetchPasses = async () => {
     let query = supabase
       .from('pass_requests')
-      .select('*, profiles!pass_requests_student_id_fkey(full_name, email, student_id)')
+      .select('*')
       .order('created_at', { ascending: false });
 
     if (statusFilter !== 'all') {
@@ -39,7 +39,21 @@ const AdminDashboard = () => {
     }
 
     const { data } = await query;
-    setPasses((data as PassWithStudent[]) || []);
+    if (!data) { setPasses([]); setLoading(false); return; }
+
+    // Fetch profiles for all student IDs
+    const studentIds = [...new Set(data.map(p => p.student_id))];
+    const { data: profiles } = await supabase
+      .from('profiles')
+      .select('id, full_name, email, student_id')
+      .in('id', studentIds);
+
+    const profileMap = new Map(profiles?.map(p => [p.id, p]) || []);
+    const withStudents: PassWithStudent[] = data.map(p => ({
+      ...p,
+      profiles: profileMap.get(p.student_id) || null,
+    }));
+    setPasses(withStudents);
     setLoading(false);
   };
 
