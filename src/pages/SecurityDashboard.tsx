@@ -42,7 +42,7 @@ const SecurityDashboard = () => {
 
     const { data, error } = await supabase
       .from('pass_requests')
-      .select('*, profiles!pass_requests_student_id_fkey(full_name, email, student_id)')
+      .select('*')
       .eq('id', actualId)
       .single();
 
@@ -53,9 +53,15 @@ const SecurityDashboard = () => {
       return;
     }
 
-    const passData = data as VerifiedPass;
+    // Fetch the student profile
+    const { data: profileData } = await supabase
+      .from('profiles')
+      .select('full_name, email, student_id')
+      .eq('id', data.student_id)
+      .single();
+
+    const passData: VerifiedPass = { ...data, profiles: profileData };
     setVerifiedPass(passData);
-    setRecentScans(prev => [passData, ...prev.filter(p => p.id !== passData.id)].slice(0, 10));
 
     if (passData.status === 'approved') {
       toast.success('Pass is VALID ✓');
