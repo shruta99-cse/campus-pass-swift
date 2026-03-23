@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import DashboardLayout from '@/components/DashboardLayout';
 import { Button } from '@/components/ui/button';
@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { toast } from 'sonner';
-import { ScanLine, Shield, CheckCircle, XCircle, Search } from 'lucide-react';
+import { ScanLine, CheckCircle, XCircle, Search } from 'lucide-react';
 import type { Tables } from '@/integrations/supabase/types';
 
 type PassRequest = Tables<'pass_requests'>;
